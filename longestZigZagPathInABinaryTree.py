@@ -42,7 +42,7 @@ class Solution:
                     # Hence, resetting the depth to 0
                     dfs(root.right, False, 0),
                 )
-            # Return the maximum depth found
+            # Return the maximum depth found in tree
             return depth
 
         # Start the DFS from the root's left and right children

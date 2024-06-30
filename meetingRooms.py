@@ -24,6 +24,6 @@ class Solution:
 
 
 c = Solution()
-intervals = [(0, 30), (5, 10), (15, 20)]
-# intervals = [(5, 8), (9, 15)]
+# intervals = [(0, 30), (5, 10), (15, 20)]
+intervals = [(5, 8), (9, 15)]
 print((c.can_attend_meetings(intervals)))
