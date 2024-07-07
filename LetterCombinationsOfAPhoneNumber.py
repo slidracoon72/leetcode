@@ -39,3 +39,8 @@ class Solution:
 
         # Return the list of combinations
         return res
+
+
+c = Solution()
+digits = "23"
+print(c.letterCombinations(digits))
