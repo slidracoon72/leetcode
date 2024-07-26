@@ -17,20 +17,21 @@ class Solution:
     # Time Complexity: O(log N) ; n = length of array
     # Implementing using Binary Search - Better Solution
     def findPeakElement_BinarySearch(self, nums: List[int]) -> int:
-        if len(nums) == 1:
-            return 0
+        l, r = 0, len(nums) - 1
 
-        left, right = 0, len(nums) - 1
-
-        while left < right:
-            mid = left + (right - left) // 2  # --> avoids integer overflow
+        while l <= r:
+            m = l + (r - l) // 2  # --> avoids integer overflow
             # mid = (left+right) // 2 --> also correct
-            if nums[mid] > nums[mid + 1]:  # decreasing slope
-                right = mid
-            else:  # increasing slope
-                left = mid + 1
 
-        return left
+            # Always move towards the peak (greater element)
+            # left neighbor greater
+            if m > 0 and nums[m] < nums[m - 1]:
+                r = m - 1
+            # right neighbor greater
+            elif m < len(nums) - 1 and nums[m] < nums[m + 1]:
+                l = m + 1
+            else:
+                return m
 
 
 c = Solution()
