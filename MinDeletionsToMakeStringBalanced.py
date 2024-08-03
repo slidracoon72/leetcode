@@ -15,7 +15,7 @@ class Solution:
                 a_count_right[i] += 1
 
         # count of 'b' to the left of each index. These 'b' are to be deleted
-        b_count_left = 0            
+        b_count_left = 0
         res = float('inf')
         for i, c in enumerate(s):
             deletion = b_count_left + a_count_right[i]
