@@ -39,6 +39,17 @@ class Solution:
                         q.append((new_r, new_c))
                         visit.add((new_r, new_c))
 
+        # # Define function for DFS on adjacent values
+        # def dfs(r, c, visit):
+        #     # Check boundary conditions, if already visited and if it is not land
+        #     if r < 0 or c < 0 or r == rows or c == cols or (r, c) in visit or grid[r][c] == 0:
+        #         return
+        #     visit.add((r, c))
+        #     # Recursively call dfs on neighbours
+        #     neighbours = [[r + 1, c], [r, c + 1], [r - 1, c], [r, c - 1]]
+        #     for nr, nc in neighbours:
+        #         dfs(nr, nc, visit)
+
         # Iterate over each cell in grid
         for r in range(rows):
             for c in range(cols):
