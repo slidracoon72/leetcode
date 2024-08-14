@@ -32,6 +32,7 @@ class Solution:
             # recursively call DFS on the courses' prerequisites
             for pre in preMap[course]:
                 if not dfs(pre): return False
+            # Remove course to avoid false detection of cycles in other paths
             visitSet.remove(course)
 
             # remove prerequisite of visited(and doable) course
