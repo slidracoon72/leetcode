@@ -42,6 +42,7 @@ class Solution:
                     heapq.heappush(minHeap, [dist1 + dist2, node2])
 
         # Ensure all nodes are included in the result, even if they are unreachable (distance = -1)
+        # Sometimes, graphs can be disconnected
         for i in range(n):
             if i not in shortest:
                 shortest[i] = -1

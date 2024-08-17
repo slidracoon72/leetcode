@@ -42,7 +42,7 @@ class Solution1:
             return pairs
 
         # Binary search to find the k-th smallest distance
-        l, r = 0, nums[-1] - nums[0]  # Initialize search range: 0 to the max possible distance
+        l, r = 0, max(nums)  # Initialize search range: 0 to the max possible distance
         while l < r:
             m = l + (r - l) // 2  # Midpoint distance
             pairs = helper(m)  # Count pairs with distance <= m
