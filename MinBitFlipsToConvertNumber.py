@@ -15,6 +15,47 @@ class Solution:
                 res += 1
         return res
 
+    # Neetcode: https://www.youtube.com/watch?v=yz48myznqQY
+    # Using Bitwise &
+    def minBitFlips1(self, start: int, goal: int) -> int:
+        res = 0
+
+        while start or goal:
+            if (start & 1) != (goal & 1):
+                res += 1
+            start = start // 2
+            goal = goal // 2
+
+        return res
+
+    # Using Bitwise Right Shift
+    def minBitFlips1(self, start: int, goal: int) -> int:
+        res = 0
+
+        while start or goal:
+            if (start % 2) != (goal % 2):
+                res += 1
+            start = start >> 1
+            goal = goal >> 1
+
+        return res
+
+    # Using Bitwise XOR
+    #  10 -> 1010
+    #  7  -> 0111
+    # XOR -> 1101
+    # Now count number of 1's after XOR to get flips to change
+    def minBitFlips2(self, start: int, goal: int) -> int:
+        res = 0
+
+        n = start ^ goal
+
+        while n:
+            res += n & 1
+            n = n >> 1
+
+        return res
+
 
 c = Solution()
 start = 10
