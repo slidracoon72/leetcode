@@ -4,6 +4,9 @@ from typing import List
 class Solution:
     # Neetcode: https://www.youtube.com/watch?v=BJnMZNwUk1M
     def spiralOrder(self, matrix: List[List[int]]) -> List[int]:
+        if not matrix or not matrix[0]:
+            return []
+
         res = []
         top, left = 0, 0
         bottom, right = len(matrix), len(matrix[0])
