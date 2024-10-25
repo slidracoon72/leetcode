@@ -11,6 +11,7 @@ class TreeNode:
 
 # Neetcode: https://www.youtube.com/watch?v=K81C31ytOZE
 class Solution:
+    # Time: O(n), Space:O(h)
     def diameterOfBinaryTree(self, root: Optional[TreeNode]) -> int:
         # Initialize the result variable to keep track of the maximum diameter found
         # Make it a global class level variable
