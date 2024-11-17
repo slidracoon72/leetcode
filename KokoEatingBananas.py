@@ -6,7 +6,7 @@ from typing import List
 # Solved using Binary Search
 class Solution:
     def minEatingSpeed(self, piles: List[int], h: int) -> int:
-        l, r = 1, max(piles)  # setting range of k values [1...11]
+        l, r = 1, max(piles)  # setting range of k values [1....11]
         res = r  # initialize res to max value i.e, r
         while l <= r:  # start binary search
             k = (l + r) // 2
