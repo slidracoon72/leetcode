@@ -1,5 +1,8 @@
+# LC - Hard
 from typing import List
 
+
+# DO AGAIN
 # Neetcode: https://www.youtube.com/watch?v=6kTZYvNNyps
 class Solution:
     def alienOrder(self, words: List[str]) -> str:

@@ -32,3 +32,9 @@ class Solution:
 
         # Start the backtracking process from index 0 and initial total 0
         return backtrack(0, 0)
+
+
+c = Solution()
+nums = [1, 1, 1, 1, 1]
+target = 3
+print(c.findTargetSumWays(nums, target))
