@@ -35,7 +35,7 @@ class Solution:
         rows, cols = len(grid), len(grid[0])
 
         q = deque([(0, 0, 0)])  # obstacles, row, col
-        visit = {(0, 0)}
+        visit = {(0, 0)} # row, col
 
         while q:
             obstacles, row, col = q.popleft()

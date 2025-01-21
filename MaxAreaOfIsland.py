@@ -18,7 +18,7 @@ class Solution:
             visit.add((r, c))
             # Return the size of the island starting from this cell
             # The size is calculated by counting the current cell (1) plus the size of the island
-            # found by exploring all four directions (right, down, left, up) recursively
+            # found by exploring all the four directions (right, down, left, up) recursively
             return 1 + dfs(r + 1, c) + dfs(r, c + 1) + dfs(r - 1, c) + dfs(r, c - 1)
 
         area = 0  # Initialize the maximum area of an island

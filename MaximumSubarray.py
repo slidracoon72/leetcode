@@ -2,7 +2,7 @@ from typing import List
 
 
 class Solution:
-    # Kaden's Algorithm
+    # Kadane's Algorithm
     def maxSubArray(self, nums: List[int]) -> int:
         n = len(nums)
         max_sum = nums[0]  # Initialize with the first element

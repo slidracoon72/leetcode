@@ -1,5 +1,6 @@
 # Dynamic Programming (2D)
 # Neetcode: https://www.youtube.com/watch?v=Ua0GhsJSlWM
+# Time: O(m * n), Space: O(m * n)
 class Solution:
     # Bottom-Up Approach
     def longestCommonSubsequence(self, text1: str, text2: str) -> int:
