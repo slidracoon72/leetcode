@@ -13,7 +13,7 @@ class Solution:
         for crs, pre in prerequisites:
             preMap[crs].append(pre)
 
-        output = []  # List to store the topological order
+        res = []  # List to store the topological order
         visit, cycle = set(), set()  # Sets to track visited courses and detect cycles
 
         def dfs(crs):
@@ -32,11 +32,17 @@ class Solution:
             cycle.remove(crs)  # Remove the course from the cycle set after exploring its prerequisites
 
             visit.add(crs)  # Mark the course as visited
-            output.append(crs)  # Add the course to the output list
+            res.append(crs)  # Add the course to the output list
             return True
 
         # Perform DFS for each course
         for c in range(numCourses):
             if not dfs(c):  # If a cycle is detected, return an empty list
                 return []
-        return output  # Return the topological order
+        return res  # Return the topological order
+
+
+c = Solution()
+numCourses = 4
+prerequisites = [[1, 0], [2, 0], [3, 1], [3, 2]]
+print(c.findOrder(numCourses, prerequisites))

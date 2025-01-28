@@ -47,6 +47,6 @@ class Solution:
 
 
 numCourses = 3
-prerequisites = [[2, 1], [1, 0]]
+prerequisites = [[2, 1], [1, 0], [0, 2]]
 c = Solution()
 print(c.canFinish(numCourses, prerequisites))
