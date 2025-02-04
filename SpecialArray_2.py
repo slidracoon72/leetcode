@@ -5,7 +5,7 @@ class Solution:
     # Using Prefix Sum
     # Time: O(N+Q), Space: O(N+Q)
     def isArraySpecial(self, nums: List[int], queries: List[List[int]]) -> List[bool]:
-        # Initialize the result list with False values, one for each query
+        # Initialize the result list with False values, one for each query.
         ans = [False] * len(queries)
 
         # Initialize a prefix array to track the count of indices with the same parity as the previous index

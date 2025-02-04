@@ -1,5 +1,5 @@
 class Solution:
-    # Time: O(n), Space: O(1)hykkopftgopdr4stiur
+    # Time: O(n), Space: O(1)
     def validWordAbbreviation(self, word: str, abbr: str) -> bool:
         i, j = 0, 0
         while i < len(abbr) and j < len(word):
