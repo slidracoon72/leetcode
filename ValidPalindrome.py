@@ -8,7 +8,8 @@ class Solution:
 
         return newStr == newStr[::-1]  # [::-1] reverses a string
 
-    # with two pointers (Time: O(n), Space: O(1))
+    # Using Two-Pointers
+    # Time: O(n), Space: O(1)
     def isPalindromeTwoPointer(self, s: str) -> bool:
         l, r = 0, len(s) - 1
 

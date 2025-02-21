@@ -1,6 +1,9 @@
+from typing import List
+
+
 class Solution:
-    # O(n)
-    def twoSum(self, nums, target):
+    # Time: O(n)
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
         complementMap = dict()
         for i in range(len(nums)):
             num = nums[i]
@@ -10,7 +13,18 @@ class Solution:
             else:
                 complementMap[complement] = i
 
-    # O(n^2)
+    # Similar as above
+    def twoSum1(self, nums: List[int], target: int) -> List[int]:
+        complementMap = {}
+        for i in range(len(nums)):
+            num = nums[i]
+            complement = target - num
+            if complement in complementMap:
+                return [complementMap[complement], i]
+            else:
+                complementMap[num] = i
+
+    # Time: O(n^2)
     def bruteForceTwoSum(self, nums, target):
         for i in range(len(nums)):
             for j in range(i + 1, len(nums)):

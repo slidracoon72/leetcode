@@ -1,6 +1,8 @@
 from typing import List
 
 
+# Solved using Binary Search (Two-Pointers)
+# Time: O(logn), Space: O(logn)
 class Solution:
     def twoSum(self, numbers: List[int], target: int) -> List[int]:
         s, f = 0, len(numbers) - 1
