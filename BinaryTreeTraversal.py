@@ -5,7 +5,7 @@ class TreeNode:
         self.right = None
 
 
-class BST:
+class BinaryTreeTraversal:
     def inorderTraversal(self, root):
         if root is None:
             return []
@@ -43,7 +43,7 @@ bst.left = TreeNode(1)
 bst.right = TreeNode(3)
 
 # Initialize the BST class
-bst_traversal = BST()
+bst_traversal = BinaryTreeTraversal()
 
 # Inorder traversal
 print("Inorder traversal:", bst_traversal.inorderTraversal(bst))  # Output: [1, 2, 3]

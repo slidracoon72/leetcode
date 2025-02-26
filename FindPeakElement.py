@@ -1,3 +1,4 @@
+# Meta - Question
 from typing import List
 
 
@@ -24,12 +25,12 @@ class Solution:
             # mid = (left+right) // 2 --> also correct
 
             # Always move towards the peak (greater element)
-            # left neighbor greater
+            # if left neighbor greater
             if m > 0 and nums[m] < nums[m - 1]:
-                r = m - 1
+                r = m - 1  # search in left side of mid
             # right neighbor greater
             elif m < len(nums) - 1 and nums[m] < nums[m + 1]:
-                l = m + 1
+                l = m + 1  # search in right side of mid
             else:
                 return m
 
@@ -38,6 +39,6 @@ c = Solution()
 nums = [1, 2, 3, 1]
 nums1 = [1, 2, 1, 3, 5, 6, 4]
 print(c.findPeakElement(nums))
-print(c.findPeakElement(nums1))
+print(c.findPeakElement(nums1))  # incorrect output
 print(c.findPeakElement_BinarySearch(nums))
 print(c.findPeakElement_BinarySearch(nums1))

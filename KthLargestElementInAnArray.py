@@ -1,3 +1,4 @@
+import heapq
 from typing import List
 
 
@@ -24,8 +25,18 @@ class Solution:
 
         return quickSelect(0, len(nums) - 1)
 
+    # Using Min-Heap
+    def findKthLargest1(self, nums: List[int], k: int) -> int:
+        heap = []
+        for num in nums:
+            heapq.heappush(heap, num)
+            if len(heap) > k:
+                heapq.heappop(heap)
+        return heap[0]
+
 
 c = Solution()
 nums = [3, 2, 1, 5, 6, 4]
 k = 2
 print(c.findKthLargest(nums, k))
+print(c.findKthLargest1(nums, k))

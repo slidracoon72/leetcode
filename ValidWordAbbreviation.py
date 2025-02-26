@@ -18,3 +18,9 @@ class Solution:
                 return False
 
         return i == len(abbr) and j == len(word)
+
+
+c = Solution()
+word = "internationalization"
+abbr = "i12iz4n"
+print(c.validWordAbbreviation(word, abbr))

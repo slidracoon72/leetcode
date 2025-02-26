@@ -10,3 +10,8 @@ class Solution:
             l, r = l + 1, r - 1
 
         return True
+
+
+c = Solution()
+s = "abca"
+print(c.validPalindrome(s))
