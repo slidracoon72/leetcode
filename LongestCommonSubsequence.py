@@ -13,7 +13,7 @@ class Solution:
         l1 = len(text1)
         l2 = len(text2)
         dp = []
-        # We loop until l1+1 as we need to add an extra row and column of 0's
+        # We loop until (l1 + 1) as we need to add an extra row and column of 0's
         for i in range(l1 + 1):
             row = []
             for j in range(l2 + 1):
