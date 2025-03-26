@@ -26,7 +26,7 @@ class Solution:
                 prereqMap[crs].add(crs)
             return prereqMap[crs]
 
-        # Compute prerequisites for all courses (populate prereqMap)
+        # Compute prerequisites for all courses (populates prereqMap)
         for crs in range(numCourses):
             dfs(crs)
 

@@ -40,7 +40,7 @@ class Solution:
 
             return True
 
-        # call DFS for each node of the graph (i.e, for each course)
+        # call DFS for each node of the graph (i.e., for each course)
         for course in range(numCourses):
             if not dfs(course): return False
         return True

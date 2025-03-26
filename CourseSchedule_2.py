@@ -18,7 +18,7 @@ class Solution:
 
         def dfs(crs):
             """
-            Depth-first search to perform topological sorting.
+            Depth-first search to perform topological sorting
             """
             if crs in cycle:  # If the course is in the cycle set, there's a cycle
                 return False
