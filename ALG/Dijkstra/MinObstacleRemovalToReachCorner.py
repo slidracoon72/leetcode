@@ -1,3 +1,5 @@
+# LC - Hard
+
 import heapq
 from collections import deque
 from typing import List
@@ -35,7 +37,7 @@ class Solution:
         rows, cols = len(grid), len(grid[0])
 
         q = deque([(0, 0, 0)])  # obstacles, row, col
-        visit = {(0, 0)} # row, col
+        visit = {(0, 0)}  # row, col
 
         while q:
             obstacles, row, col = q.popleft()
@@ -52,7 +54,7 @@ class Solution:
                     # add to right (end) of deque as more obstacles
                     q.append((obstacles + 1, nr, nc))
                 else:
-                    # add to the left (start) of deque
+                    # add to the left (start) of deque as less obstacles
                     q.appendleft((obstacles, nr, nc))
 
                 visit.add((nr, nc))
