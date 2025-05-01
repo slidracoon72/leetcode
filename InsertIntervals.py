@@ -2,6 +2,8 @@ from typing import List
 
 
 class Solution:
+    # Greedy Solution
+    # Time: O(n), Space: O(n)
     def insertNeetcode(self, intervals: List[List[int]], newInterval: List[int]) -> List[List[int]]:
         res = []
 

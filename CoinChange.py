@@ -30,10 +30,10 @@ class Solution:
                     dp[a] = min(dp[a], 1 + dp[a - c])
 
         # If dp[amount] is still amount + 1, it means it's not possible to make up that amount with the given coins
-        if dp[amount] != amount + 1:
-            return dp[amount]
-        else:
+        if dp[amount] == amount + 1:
             return -1
+        else:
+            return dp[amount]
 
 
 c = Solution()

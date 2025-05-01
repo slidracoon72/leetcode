@@ -5,15 +5,15 @@ from typing import List
 # Time: O(logn), Space: O(logn)
 class Solution:
     def twoSum(self, numbers: List[int], target: int) -> List[int]:
-        s, f = 0, len(numbers) - 1
-        while s < f:
-            temp = numbers[s] + numbers[f]
+        s, e = 0, len(numbers) - 1
+        while s < e:
+            temp = numbers[s] + numbers[e]
             if temp == target:
-                return [s + 1, f + 1]
+                return [s + 1, e + 1]
             elif temp < target:
                 s += 1
             else:
-                f -= 1
+                e -= 1
         return []
 
     def twoSum_alternate(self, numbers: List[int], target: int) -> List[int]:

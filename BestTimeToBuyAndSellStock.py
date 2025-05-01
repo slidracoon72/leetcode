@@ -2,8 +2,8 @@ from typing import List
 
 
 class Solution:
-    # Time: O(n), Memory: O(1)
-    # Solved using "two-pointer"
+    # Time: O(n), Space: O(1)
+    # Solved using Two-Pointer
     def maxProfit(self, prices: List[int]) -> int:
         l, r = 0, 1  # left = buy, right = sell
         maxP = 0

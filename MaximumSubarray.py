@@ -3,6 +3,7 @@ from typing import List
 
 class Solution:
     # Kadane's Algorithm
+    # Time: O(n), Space: O(1)
     def maxSubArray(self, nums: List[int]) -> int:
         n = len(nums)
         max_sum = nums[0]  # Initialize with the first element

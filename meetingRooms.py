@@ -1,6 +1,31 @@
 from typing import List
 
 
+# Definition of Interval:
+class Interval(object):
+    def __init__(self, start, end):
+        self.start = start
+        self.end = end
+
+
+class Solution1:
+    def canAttendMeetings(self, intervals: List[Interval]) -> bool:
+        if not intervals:
+            return True
+
+        intervals.sort(key=lambda x: x.start)
+        prevEnd = intervals[0].end
+
+        for i in intervals[1:]:
+            start, end = i.start, i.end
+            if prevEnd > start:
+                return False
+            prevEnd = end
+        return True
+
+
+################################################
+
 # class Interval(object):
 #     def __init__(self, start, end):
 #         self.start = start

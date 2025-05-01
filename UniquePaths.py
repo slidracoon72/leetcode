@@ -7,7 +7,7 @@ class Solution:
         row = [1] * n
 
         # Traverse from second last row till first row
-        # Last row and col will always be 1 as from them, we can only go down and right respectively
+        # Last row and col will always be 1 as from them, we can only go right and down respectively
         for i in range(m - 1):
             # Initialize new row
             newRow = [1] * n

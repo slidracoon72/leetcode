@@ -2,7 +2,7 @@ from typing import List
 
 
 # Backtracking - Recursive
-# Time: O(n*(4^n))
+# Time and Space: O(n*(4^n))
 # Neetcode: https://www.youtube.com/watch?v=0snEunUacZY
 class Solution:
     def letterCombinations(self, digits: str) -> List[str]:

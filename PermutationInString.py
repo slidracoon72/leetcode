@@ -44,3 +44,9 @@ class Solution:
 
         # No permutation match found
         return False
+
+
+c = Solution()
+s1 = "abc"
+s2 = "lecabee"
+print(c.checkInclusion1(s1, s2))

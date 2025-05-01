@@ -1,5 +1,6 @@
+# LC - Hard
 class Solution:
-    # Sliding Window - Hard
+    # Sliding Window
     # Time Complexity: O(N)
     # Neetcode: https://www.youtube.com/watch?v=jSto0O4AJbM
     def minWindow(self, s: str, t: str) -> str:
@@ -16,8 +17,8 @@ class Solution:
         # Initialize variables for tracking the window state and result
         have, need = 0, len(countT)
         res, resLen = [-1, -1], float('inf')
-        l = 0
 
+        l = 0
         # Expand the window to the right
         for r in range(len(s)):
             c = s[r]
@@ -49,6 +50,6 @@ class Solution:
 
 
 s = "ADOBECODEBANC"
-t = "ABC"
+t = "ABCC"
 c = Solution()
 print(c.minWindow(s, t))

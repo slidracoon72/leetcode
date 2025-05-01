@@ -25,7 +25,7 @@ class Solution:
 
         return quickSelect(0, len(nums) - 1)
 
-    # Using Min-Heap
+    # 1. Using Min-Heap
     def findKthLargest1(self, nums: List[int], k: int) -> int:
         heap = []
         for num in nums:
@@ -33,6 +33,13 @@ class Solution:
             if len(heap) > k:
                 heapq.heappop(heap)
         return heap[0]
+
+    # 2. Using Min-Heap
+    def findKthLargest2(self, nums: List[int], k: int) -> int:
+        heapq.heapify(nums)
+        while len(nums) > k:
+            heapq.heappop(nums)
+        return nums[0]
 
 
 c = Solution()

@@ -8,7 +8,7 @@ class TrieNode:
         Initializes a TrieNode object.
         """
         self.children = {}  # Dictionary to store children nodes
-        self.endOfWord = {}  # Flag to indicate the end of a word
+        self.endOfWord = False  # Flag to indicate the end of a word
 
     def addWord(self, word: str):
         """

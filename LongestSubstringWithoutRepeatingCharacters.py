@@ -1,12 +1,11 @@
 class Solution:
+    # Using Sliding Window (left and right pointers)
+    # Time: O(N), Space: O(M) where M = unique chars
     def lengthOfLongestSubstring(self, s: str) -> int:
-        # Using Sliding Window (left and right pointers)
-        # Time: O(N)
         charSet = set()
-        l = 0
         res = 0
 
-        # looping through string changing right pointer
+        l = 0
         for r in range(len(s)):
             while s[r] in charSet:
                 charSet.remove(s[l])

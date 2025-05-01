@@ -3,9 +3,9 @@ from typing import List
 
 
 # Graph question
-# Solving using BFS (iterative)
-# Neetcode: https://www.youtube.com/watch?v=pV2kpPD66nE
 class Solution:
+    # Solved using BFS (iterative)
+    # Neetcode: https://www.youtube.com/watch?v=pV2kpPD66nE
     def numIslands(self, grid: List[List[str]]) -> int:
         # Check if grid is empty
         if not grid:
@@ -15,7 +15,8 @@ class Solution:
         rows, cols = len(grid), len(grid[0])
         # Set to keep track of visited land
         visit = set()
-        islands = 0
+        # Define directions to move in grid
+        directions = [[1, 0], [-1, 0], [0, 1], [0, -1]]
 
         # Define function for BFS on adjacent values
         def bfs(r, c):
@@ -25,8 +26,6 @@ class Solution:
 
             while q:
                 row, col = q.popleft()
-                # Define directions to move in grid
-                directions = [[1, 0], [-1, 0], [0, 1], [0, -1]]
                 for dr, dc in directions:
                     # Calculate new coordinates
                     new_r, new_c = row + dr, col + dc
@@ -39,17 +38,7 @@ class Solution:
                         q.append((new_r, new_c))
                         visit.add((new_r, new_c))
 
-        # # Define function for DFS on adjacent values
-        # def dfs(r, c, visit):
-        #     # Check boundary conditions, if already visited and if it is not land
-        #     if r < 0 or c < 0 or r == rows or c == cols or (r, c) in visit or grid[r][c] == 0:
-        #         return
-        #     visit.add((r, c))
-        #     # Recursively call dfs on neighbours
-        #     neighbours = [[r + 1, c], [r, c + 1], [r - 1, c], [r, c - 1]]
-        #     for nr, nc in neighbours:
-        #         dfs(nr, nc, visit)
-
+        islands = 0
         # Iterate over each cell in grid
         for r in range(rows):
             for c in range(cols):
@@ -59,6 +48,32 @@ class Solution:
                     islands += 1
 
         # Return number of islands
+        return islands
+
+    # Solved Using DFS
+    def numIslands1(self, grid: List[List[str]]) -> int:
+        if not grid:
+            return 0
+
+        rows, cols = len(grid), len(grid[0])
+        visit = set()
+        directions = [[1, 0], [-1, 0], [0, 1], [0, -1]]
+
+        def dfs(r, c):
+            if r < 0 or r >= rows or c < 0 or c >= cols or (r, c) in visit or grid[r][c] == "0":
+                return
+
+            visit.add((r, c))
+            for dr, dc in directions:
+                new_row, new_col = r + dr, c + dc
+                dfs(new_row, new_col)
+
+        islands = 0
+        for r in range(rows):
+            for c in range(cols):
+                if grid[r][c] == '1' and (r, c) not in visit:
+                    dfs(r, c)
+                    islands += 1
         return islands
 
 

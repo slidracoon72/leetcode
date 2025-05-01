@@ -1,15 +1,14 @@
 import heapq
 from collections import Counter, deque
 
-# follow Neetcode
+
+# Neetcode: https://youtu.be/s8p8ukTyA2I
 class Solution:
+    # Time: O(m), Space: O(1) where m = no. of tasks
     def leastInterval(self, tasks, n: int) -> int:
         count = Counter(tasks)
-        print(count)
         maxHeap = [-cnt for cnt in count.values()]
-        print(maxHeap)
         heapq.heapify(maxHeap)
-        print(maxHeap)
 
         time = 0
         q = deque()  # pairs of [-cnt, idleTime]
@@ -25,6 +24,7 @@ class Solution:
 
 
 c = Solution()
-tasks = ["A", "A", "A", "A", "A", "A", "B", "C", "D", "E", "F", "G"]
-n = 2
+tasks = ["A", "A", "A", "B", "C"]
+n = 3
+
 print(c.leastInterval(tasks, n))

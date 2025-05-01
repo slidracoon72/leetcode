@@ -5,15 +5,16 @@ from typing import List
 # TIme Complexity: O(log n)
 class Solution:
     def findMin(self, nums: List[int]) -> int:
-        l = 0
-        r = len(nums) - 1
-
+        l, r = 0, len(nums) - 1
         while l < r:
-            mid = (l + r) // 2
-
-            if nums[mid] > nums[r]:
-                l = mid + 1
+            m = l + (r - l) // 2
+            if nums[m] < nums[r]:
+                r = m
             else:
-                r = mid
-
+                l = m + 1
         return nums[l]
+
+
+c = Solution()
+nums = [3, 4, 5, 6, 1, 2]
+print(c.findMin(nums))

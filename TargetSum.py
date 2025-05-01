@@ -1,6 +1,8 @@
 from typing import List
 
 
+# Dynamic Programming (2D) - Top-Down Approach
+# Time: O(m * n), Space: O(m * n)
 class Solution:
     def findTargetSumWays(self, nums: List[int], target: int) -> int:
         # Memoization cache to store results of sub-problems
@@ -32,6 +34,27 @@ class Solution:
 
         # Start the backtracking process from index 0 and initial total 0
         return backtrack(0, 0)
+
+    # Same as above
+    def findTargetSumWays1(self, nums: List[int], target: int) -> int:
+        memo = {}
+
+        def dfs(i, curSum):
+            if i == len(nums):
+                return 1 if curSum == target else 0
+
+            if (i, curSum) in memo:
+                return memo[(i, curSum)]
+
+            # add
+            add = dfs(i + 1, curSum + nums[i])
+            # subtract
+            sub = dfs(i + 1, curSum - nums[i])
+
+            memo[(i, curSum)] = add + sub
+            return memo[(i, curSum)]
+
+        return dfs(0, 0)
 
 
 c = Solution()

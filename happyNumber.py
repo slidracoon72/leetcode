@@ -1,16 +1,18 @@
 class Solution:
     def isHappy(self, n: int) -> bool:
-        l = []
-        while n not in l:
-            l.append(n)
-            digits = list(str(n))
+        visit = set()
+
+        while n > 1:
+            digits = str(n)
             temp = 0
-            for digit in digits:
-                temp += int(digit) ** 2
-            if temp == 1:
-                return True
+            for d in digits:
+                temp += int(d) ** 2
+            if temp in visit:
+                return False
+            visit.add(temp)
             n = temp
-        return False
+
+        return True
 
 
 obj = Solution()

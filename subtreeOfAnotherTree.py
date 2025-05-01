@@ -1,7 +1,8 @@
-# Definition for a binary tree node.
+import collections
 from typing import Optional
 
 
+# Definition for a binary tree node.
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
         self.val = val
@@ -23,3 +24,31 @@ class Solution:
         if not p or not q or p.val != q.val:
             return False
         return self.isSameTree(p.left, q.left) and self.isSameTree(p.right, q.right)
+
+
+# Using BFS
+class Solution1:
+    def isSubtree(self, root: Optional[TreeNode], subRoot: Optional[TreeNode]) -> bool:
+
+        def isSameTree(p, q):
+            if not p and not q:
+                return True
+            if not p or not q:
+                return False
+            return p.val == q.val and isSameTree(p.left, q.left) and isSameTree(p.right, q.right)
+
+        if not root:
+            return False
+
+        q = collections.deque([root])
+
+        while q:
+            node = q.popleft()
+            if node and node.val == subRoot.val and isSameTree(node, subRoot):
+                return True
+            if node.left:
+                q.append(node.left)
+            if node.right:
+                q.append(node.right)
+
+        return False

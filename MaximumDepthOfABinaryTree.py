@@ -10,12 +10,13 @@ class TreeNode:
         self.right = right
 
 
+# Time: O(n), Space: O(n)
 class Solution:
     # Using recursion
     def maxDepth(self, root: Optional[TreeNode]) -> int:
         if not root:
             return 0
-        return max(self.maxDepth(root.left), self.maxDepth(root.right)) + 1
+        return 1 + max(self.maxDepth(root.left), self.maxDepth(root.right))
 
     # Using BFS
     def maxDepth1(self, root: Optional[TreeNode]) -> int:

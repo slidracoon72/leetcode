@@ -38,5 +38,7 @@ class Solution:
 
 
 c = Solution()
-temperatures = [73, 74, 75, 71, 69, 72, 76, 73]
-print(c.dailyTemperatures(temperatures))
+temperatures1 = [73, 74, 75, 71, 69, 72, 76, 73]
+temperatures2 = [30, 38, 30, 36, 35, 40, 28]
+print(c.dailyTemperatures(temperatures1))
+print(c.dailyTemperatures(temperatures2))

@@ -38,7 +38,7 @@ class Solution:
             # res = max(res, left + right)
 
             # Return the height of the current node, which is 1 plus the maximum height of its subtrees
-            return max(left, right) + 1
+            return 1 + max(left, right)
 
         # Start the DFS from the root to compute the diameter
         dfs(root)

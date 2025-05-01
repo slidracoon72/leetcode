@@ -1,3 +1,6 @@
+from typing import List
+
+
 class Solution:
     # Time: O(N), Space: O(1)
     # Neetcode: https://www.youtube.com/watch?v=bNvIQI2wAjk
@@ -16,20 +19,20 @@ class Solution:
 
         return res
 
-    # This exceeds time limit
-    def my_solution(self, nums):
-        answer = []
-        for i in range(len(nums)):
-            d = nums[i]
-            nums.remove(d)
-            # print(nums)
-            result = 1
-            for x in nums:
-                result *= x
-            answer.append(result)
-            nums.insert(i, d)
+    def productExceptSelf1(self, nums: List[int]) -> List[int]:
+        n = len(nums)
+        res = [0] * n
+        pref = [0] * n
+        suff = [0] * n
 
-        return answer
+        pref[0] = suff[n - 1] = 1
+        for i in range(1, n):
+            pref[i] = nums[i - 1] * pref[i - 1]
+        for i in range(n - 2, -1, -1):
+            suff[i] = nums[i + 1] * suff[i + 1]
+        for i in range(n):
+            res[i] = pref[i] * suff[i]
+        return res
 
 
 c = Solution()
@@ -37,5 +40,3 @@ nums1 = [1, 2, 3, 4]
 nums2 = [-1, 1, 0, -3, 3]
 print(c.productExceptSelf(nums1))
 print(c.productExceptSelf(nums2))
-print(c.my_solution(nums1))
-print(c.my_solution(nums2))

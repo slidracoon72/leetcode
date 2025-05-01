@@ -18,9 +18,11 @@ class Solution:
             i = 0
             # Compute how many houses can be robbed with capability 'mid'
             while i < len(nums):
+                # Rob
                 if nums[i] <= mid:  # If house value fits within capability
                     count += 1
                     i += 2  # Skip next house (no adjacent robbing)
+                # Skip
                 else:
                     i += 1  # Move to next house
 

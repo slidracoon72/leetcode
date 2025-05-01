@@ -30,13 +30,13 @@ class Solution:
             visit.add(i)
 
             # Check all adjacent nodes
-            for j in adj[i]:
+            for nei in adj[i]:
                 # Ignore the node we came from to prevent false cycle detection
-                if j == prev:
+                if nei == prev:
                     continue
 
                 # Recursively perform DFS, if a cycle is detected return False
-                if not dfs(j, i):
+                if not dfs(nei, i):
                     return False
 
             return True

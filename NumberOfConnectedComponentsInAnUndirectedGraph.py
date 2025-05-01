@@ -3,6 +3,31 @@ from typing import List
 
 
 class Solution:
+    # Solved using DFS - Recursive
+    # Time: O(E+V)
+    def countComponents(self, n: int, edges: List[List[int]]) -> int:
+        adj = defaultdict(list)
+        for u, v in edges:
+            adj[u].append(v)
+            adj[v].append(u)
+
+        visit = set()
+
+        def dfs(i):
+            if i in visit:
+                return
+
+            visit.add(i)
+            for nei in adj[i]:
+                dfs(nei)
+
+        components = 0
+        for i in range(n):
+            if i not in visit:
+                components += 1
+                dfs(i)
+        return components
+
     # Solved using DFS - Iterative
     # Time: O(E+V)
     def count_connected_components(self, n: int, edges: List[List[int]]) -> int:

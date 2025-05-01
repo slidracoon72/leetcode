@@ -49,7 +49,7 @@ class Solution:
 
         return water
 
-    # Most optimal solution - Using two-pointers
+    # Most optimal solution - Using Two-Pointers
     # Memory Complexity: O(1) (Constant - as no data structure used)
     # Neetcode: https://www.youtube.com/watch?v=ZI2z5pq0TqA
     def trap2(self, height: List[int]) -> int:
@@ -72,3 +72,8 @@ class Solution:
                 water += maxRight - height[r]
 
         return water
+
+
+c = Solution()
+height = [0, 2, 0, 3, 1, 0, 1, 3, 2, 1]
+print(c.trap2(height))

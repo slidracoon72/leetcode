@@ -17,11 +17,13 @@ class Solution:
                 return
 
             # going through left branch of tree (recursively)
+            # Include
             cur.append(candidates[i])
             dfs(i, cur, total + candidates[i])
 
             # going through right branch of tree (recursively)
             # For right tree, we exclude the already used candidate value in left tree
+            # Skip
             cur.pop()
             dfs(i + 1, cur, total)
 

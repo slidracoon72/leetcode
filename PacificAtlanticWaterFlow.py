@@ -1,7 +1,7 @@
 from typing import List
 
 
-# Time: O(M*N)
+# Time: O(M*N), Space: O(M*N)
 # Solving using DFS (reverse thinking - moving from water to land, not land to water)
 # Applying DFS from border cells and moving inwards, therefore, we check that
 # current height is greater than or equal to previous height

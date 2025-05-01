@@ -2,7 +2,7 @@ from typing import List
 
 
 class Solution:
-    # Time: O(n)
+    # Time: O(n), Space: O(n)
     def twoSum(self, nums: List[int], target: int) -> List[int]:
         complementMap = dict()
         for i in range(len(nums)):
@@ -14,6 +14,7 @@ class Solution:
                 complementMap[complement] = i
 
     # Similar as above
+    # Time: O(n), Space: O(n)
     def twoSum1(self, nums: List[int], target: int) -> List[int]:
         complementMap = {}
         for i in range(len(nums)):

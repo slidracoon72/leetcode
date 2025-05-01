@@ -1,6 +1,5 @@
 class Solution:
-
-    # BRUTE FORCE -> Time: O(n^2)
+    # Brute Force -> Time: O(n^2)
     def maxArea_bf(self, height) -> int:
         res = 0
 
@@ -11,7 +10,8 @@ class Solution:
 
         return res
 
-    # Optimal Solution -> Time: O(n), Using Two Pointers
+    # Using Two Pointers
+    # Optimal Solution -> Time: O(n)
     def maxArea(self, height) -> int:
         res = 0
         l, r = 0, len(height) - 1

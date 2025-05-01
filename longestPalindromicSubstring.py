@@ -4,6 +4,7 @@ class Solution:
         res = ""
         resLen = 0
 
+        # Check from the ith value of the string expanding outwards (<- i ->)
         for i in range(len(s)):
             # check all odd length substrings
             l, r, = i, i

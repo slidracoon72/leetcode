@@ -18,6 +18,7 @@ class Solution:
         return current
 
     # Dynamic Programming Solution
+    # Time: O(n), Space: O(1)
     def climbStairsDP(self, n: int) -> int:
         one = 1
         two = 1

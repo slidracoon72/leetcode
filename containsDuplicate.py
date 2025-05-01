@@ -2,6 +2,7 @@ from typing import List
 
 
 class Solution:
+    # Time: O(n), Space: O(n)
     def containsDuplicate(self, nums: List[int]) -> bool:
         o = len(nums)
         f = len(set(nums))
@@ -9,6 +10,9 @@ class Solution:
             return True
         else:
             return False
+
+    def hasDuplicate1(self, nums: List[int]) -> bool:
+        return len(set(nums)) < len(nums)
 
 
 c = Solution()

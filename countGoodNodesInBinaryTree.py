@@ -1,4 +1,7 @@
 # Definition for a binary tree node.
+from collections import deque
+
+
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
         self.val = val
@@ -6,7 +9,9 @@ class TreeNode:
         self.right = right
 
 
+# Time: O(N), Space: O(N)
 class Solution:
+    # DFS
     def goodNodes(self, root: TreeNode) -> int:
         def dfs(node, max_val):
             if not node:
@@ -21,3 +26,24 @@ class Solution:
             return count
 
         return dfs(root, float('-inf'))
+
+    # BFS
+    def goodNodes(self, root: TreeNode) -> int:
+        res = 0
+        q = deque()
+        q.append((root, -float('inf')))
+
+        while q:
+            node, maxval = q.popleft()
+            if node.val >= maxval:
+                res += 1
+
+            maxVal = max(maxval, node.val)
+
+            if node.left:
+                q.append((node.left, maxVal))
+
+            if node.right:
+                q.append((node.right, maxVal))
+
+        return res
