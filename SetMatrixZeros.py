@@ -29,6 +29,9 @@ class Solution:
     # Using Iteration
     # Time: O(m * n), Space: O(m + n)
     def setZeroes1(self, matrix: List[List[int]]) -> None:
+        """
+        Do not return anything, modify matrix in-place instead.
+        """
         ROWS, COLS = len(matrix), len(matrix[0])
         rows, cols = [False] * ROWS, [False] * COLS
 
@@ -41,6 +44,26 @@ class Solution:
         for r in range(ROWS):
             for c in range(COLS):
                 if rows[r] or cols[c]:
+                    matrix[r][c] = 0
+
+    # Similar as above - Using Hash-Set
+    # Time: O(m * n), Space: O(m + n)
+    def setZeroes2(self, matrix: List[List[int]]) -> None:
+        """
+        Do not return anything, modify matrix in-place instead.
+        """
+        rows, cols = len(matrix), len(matrix[0])
+        row_set, col_set = set(), set()
+
+        for r in range(rows):
+            for c in range(cols):
+                if matrix[r][c] == 0:
+                    row_set.add(r)
+                    col_set.add(c)
+
+        for r in range(rows):
+            for c in range(cols):
+                if r in row_set or c in col_set:
                     matrix[r][c] = 0
 
 
