@@ -28,3 +28,8 @@ class Solution:
 
         # The total number of candies needed is the sum of the values in the 'arr' array
         return sum(arr)
+
+
+c = Solution()
+ratings = [1, 0, 2]
+print(c.candy(ratings))
