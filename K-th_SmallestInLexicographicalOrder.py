@@ -1,4 +1,6 @@
 # LC - Hard
+# DO AGAIN
+
 class Solution:
     # Passes 40/69 test cases
     # Getting TLE
@@ -53,3 +55,8 @@ class Solution:
 
         # After the loop, 'cur' will be the k-th lexicographical number
         return cur
+
+
+c = Solution()
+print(c.findKthNumber1(13, 2))
+print(c.findKthNumber1(1361, 400))
