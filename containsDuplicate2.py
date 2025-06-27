@@ -1,26 +1,17 @@
+from typing import List
+
+
 class Solution:
-    def containsNearbyDuplicate(self, nums, k) -> bool:
-        dic = {}
-        for i, v in enumerate(nums):
-            if v in dic and i - dic[v] <= k:
-                print(dic)
-                return True
-            dic[v] = i
-        print(dic)
-        return False
+    # Using Hash-Map
+    # Time: O(n), Space: O(n)
+    def containsNearbyDuplicate(self, nums: List[int], k: int) -> bool:
+        seen = {}
 
-    # Solved using Sliding Window
-    def containsNearbyDuplicate1(self, nums, k) -> bool:
-        window = set()
-        l = 0
-
-        for r in range(len(nums)):
-            if r - l > k:
-                window.remove(nums[l])
-                l += 1
-            if nums[r] in window:
+        for i in range(len(nums)):
+            if nums[i] in seen and i - seen[nums[i]] <= k:
                 return True
-            window.add(nums[r])
+            seen[nums[i]] = i
+
         return False
 
 

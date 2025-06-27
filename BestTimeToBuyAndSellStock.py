@@ -21,8 +21,8 @@ class Solution:
 
 
 v = Solution()
-
 prices1 = [7, 1, 5, 3, 6, 4]
 prices2 = [7, 6, 4, 3, 1]
 
+print("Max Profit: ", v.maxProfit(prices1))
 print("Max Profit: ", v.maxProfit(prices2))

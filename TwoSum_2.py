@@ -16,6 +16,20 @@ class Solution:
                 e -= 1
         return []
 
+    # Similar as above
+    def twoSum1(self, nums: List[int], target: int) -> List[int]:
+        n = len(nums)
+        l, r = 0, n - 1
+        while l < r:
+            temp = nums[l] + nums[r]
+            if temp > target:
+                r -= 1
+            elif temp < target:
+                l += 1
+            else:
+                return [l + 1, r + 1]
+        return []
+
     def twoSum_alternate(self, numbers: List[int], target: int) -> List[int]:
         s, f = 0, 1
         while f < len(numbers):

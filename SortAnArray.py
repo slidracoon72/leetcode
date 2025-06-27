@@ -1,7 +1,7 @@
 # Given an array of integers nums, sort the array in ascending order and return it.
 # You must solve the problem without using any built-in functions in O(nlog(n)) time
 # complexity and with the smallest space complexity possible.
-
+import heapq
 from typing import List
 
 
@@ -27,6 +27,14 @@ class Solution:
         result.extend(left[i:])
         result.extend(right[j:])
         return result
+
+    # Using Heap
+    def sortArray(self, nums: List[int]) -> List[int]:
+        res = []
+        heapq.heapify(nums)
+        while nums:
+            res.append(heapq.heappop(nums))
+        return res
 
 
 c = Solution()

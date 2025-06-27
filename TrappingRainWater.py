@@ -4,19 +4,7 @@ from typing import List
 
 
 class Solution:
-    # Not optimal
-    def trap(self, height: List[int]) -> int:
-        water = 0
-        for i, h in enumerate(height):
-            maxLeft = max(height[:i]) if i > 0 else 0
-            maxRight = max(height[i + 1:]) if i < len(height) - 1 else 0
-            x = min(maxLeft, maxRight)
-            minHeight = x - h
-            if minHeight > 0:
-                water += minHeight
-        return water
-
-    # More Optimal
+    # Optimal
     # Memory: O(N)
     def trap1(self, height: List[int]) -> int:
         # Check if the height list is empty
@@ -71,6 +59,18 @@ class Solution:
                 maxRight = max(maxRight, height[r])
                 water += maxRight - height[r]
 
+        return water
+
+    # Not optimal
+    def trap(self, height: List[int]) -> int:
+        water = 0
+        for i, h in enumerate(height):
+            maxLeft = max(height[:i]) if i > 0 else 0
+            maxRight = max(height[i + 1:]) if i < len(height) - 1 else 0
+            x = min(maxLeft, maxRight)
+            minHeight = x - h
+            if minHeight > 0:
+                water += minHeight
         return water
 
 

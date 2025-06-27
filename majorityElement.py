@@ -1,27 +1,22 @@
-from typing import List
+from typing import List, Counter
 
 
 class Solution:
     def majorityElement(self, nums: List[int]) -> int:
-        d = dict()
-        for i in nums:
-            if i in d:
-                d[i] += 1
-            else:
-                d[i] = 1
-        return max(d, key=d.get)
+        n = len(nums)
+        c = Counter(nums)
+        for key, val in c.items():
+            if val > n // 2:
+                return key
 
-    def majorityElement1(self, nums):
+    def majorityElement1(self, nums: List[int]) -> int:
         nums.sort()
-        print(nums)
-        print("Most:", len(nums) // 2)
         return nums[len(nums) // 2]
 
 
 c = Solution()
 a1 = [3, 2, 3]
 a2 = [2, 2, 1, 1, 1, 2, 2]
-
 print(c.majorityElement(a1))
 print(c.majorityElement(a2))
 print(c.majorityElement1(a2))

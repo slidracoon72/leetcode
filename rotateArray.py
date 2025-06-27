@@ -1,34 +1,30 @@
+from typing import List
+
+
+class Solution:
+    # Time: O(n), Space: O(n)
+    def rotate(self, nums: List[int], k: int) -> None:
+        """
+        Rotates the array 'nums' to the right by 'k' steps.
+        This modifies the input list 'nums' in-place.
+        """
+
+        # Get the length of the input list
+        n = len(nums)
+
+        # Create a temporary list of the same size to hold rotated elements
+        temp = [0] * n
+
+        # Place each element from 'nums' into its rotated position in 'temp'
+        for i in range(n):
+            temp[(i + k) % n] = nums[i]
+            # (i + k) % n ensures the index wraps around if it exceeds the array length
+
+        # Copy the rotated elements back to the original list 'nums'
+        nums[:] = temp  # Using nums[:] ensures in-place modification
+
+
+c = Solution()
 nums = [1, 2, 3, 4, 5, 6, 7]
 k = 3
-
-# nums = [-1, -100, 3, 99]
-# k = 2
-
-# Solution 1
-nums1 = list()
-c = 0
-for i in range(len(nums) - 1, -1, -1):
-    nums1.append(nums[i])
-    c += 1
-    if c == k:
-        break
-
-nums1.reverse()
-nums2 = nums[:len(nums) - k]
-# nums = nums1 + nums2
-
-# print(nums1)
-# print(nums2)
-# print(nums)
-
-# ------------------------
-# Solution 2 - Solved "in-place"
-n = len(nums)
-k = k % n
-print(nums)
-nums[:n - k] = nums[:n - k][::-1]  # reverse front part
-print(nums)
-nums[n - k:] = nums[n - k:][::-1]  # reverse back part
-print(nums)
-nums[:] = nums[::-1]  # reverse whole list
-print(nums)
+print(c.rotate(nums, k))
