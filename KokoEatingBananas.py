@@ -5,6 +5,7 @@ from typing import List
 # Neetcode: https://www.youtube.com/watch?v=U2SozAs9RzA
 # Solved using Binary Search
 class Solution:
+    # Time: O(nlogs); s = range from l to r, Space: O(1)
     def minEatingSpeed(self, piles: List[int], h: int) -> int:
         # Define search space: min rate is 1, max rate is the largest pile
         l, r = 1, max(piles)  # l=1 (smallest possible rate), r=max(piles) (upper bound)

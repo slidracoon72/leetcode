@@ -14,8 +14,7 @@ class Solution:
             root.left = self.deleteNode(root.left, key)
         elif key > root.val:
             root.right = self.deleteNode(root.right, key)
-        else:
-            # Node to delete found
+        else:  # Node to delete found
 
             # Node has only one child
             if not root.left:

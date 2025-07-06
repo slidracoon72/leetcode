@@ -1,3 +1,6 @@
+from typing import Optional, List
+
+
 class TreeNode:
     def __init__(self, val):
         self.val = val
@@ -6,7 +9,7 @@ class TreeNode:
 
 
 class BinaryTreeTraversal:
-    def inorderTraversal(self, root):
+    def inorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
         if root is None:
             return []
         result = []
@@ -15,7 +18,7 @@ class BinaryTreeTraversal:
         result += self.inorderTraversal(root.right)
         return result
 
-    def preorderTraversal(self, root):
+    def preorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
         if root is None:
             return []
         result = []
@@ -24,7 +27,7 @@ class BinaryTreeTraversal:
         result += self.preorderTraversal(root.right)
         return result
 
-    def postorderTraversal(self, root):
+    def postorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
         if root is None:
             return []
         result = []
@@ -32,6 +35,49 @@ class BinaryTreeTraversal:
         result += self.postorderTraversal(root.right)
         result.append(root.val)
         return result
+
+    # Alternate - but similar DFS solutions
+    def inorderTraversal1(self, root: Optional[TreeNode]) -> List[int]:
+        res = []
+
+        def inorder(node):
+            if not node:
+                return
+
+            inorder(node.left)
+            res.append(node.val)
+            inorder(node.right)
+
+        inorder(root)
+        return res
+
+    def preorderTraversal1(self, root: Optional[TreeNode]) -> List[int]:
+        res = []
+
+        def preorder(node):
+            if not node:
+                return
+
+            res.append(node.val)
+            preorder(node.left)
+            preorder(node.right)
+
+        preorder(root)
+        return res
+
+    def postorderTraversal1(self, root: Optional[TreeNode]) -> List[int]:
+        res = []
+
+        def postorder(node):
+            if not node:
+                return
+
+            postorder(node.left)
+            postorder(node.right)
+            res.append(node.val)
+
+        postorder(root)
+        return res
 
 
 # Example usage:

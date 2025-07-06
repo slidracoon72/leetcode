@@ -30,6 +30,6 @@ class Solution:
     def invertTree1(self, root: TreeNode) -> TreeNode:
         if not root: return
         root.left, root.right = root.right, root.left
-        self.invertTree(root.left)
-        self.invertTree(root.right)
+        self.invertTree1(root.left)
+        self.invertTree1(root.right)
         return root

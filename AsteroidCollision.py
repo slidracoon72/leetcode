@@ -2,6 +2,8 @@ from typing import List
 
 
 class Solution:
+    # Stack
+    # Time: O(n), Space: O(n)
     def asteroidCollision(self, asteroids: List[int]) -> List[int]:
         stack = []  # Create an empty stack to store asteroids
 
@@ -23,6 +25,21 @@ class Solution:
                     stack.append(x)  # If there's no collision, add the asteroid to the stack
 
         return stack  # Return the remaining asteroids after all collisions
+
+    def asteroidCollision1(self, asteroids: List[int]) -> List[int]:
+        stack = []
+        for a in asteroids:
+            if a > 0:
+                stack.append(a)
+            else:
+                while stack and stack[-1] > 0 and stack[-1] < abs(a):
+                    stack.pop()
+
+                if not stack or stack[-1] < 0:
+                    stack.append(a)
+                elif stack[-1] == abs(a):
+                    stack.pop()
+        return stack
 
 
 asteroids = [5, 10, -5]

@@ -18,15 +18,7 @@ class Solution:
 
         return '/' + '/'.join(stack)
 
-    def simplifyPathMyWay(self, path: str) -> str:
-        s = ['/']
-        for x in path:
-            c = s[-1]
-            if (c == '/' and x == c) or (c == '.' and x == c) or x == '.':
-                continue
-            s.append(x)
 
-        if len(s) == 1:
-            return ''.join(s)
-        elif s[-1] == '/':
-            return ''.join(s[:len(s) - 1])
+c = Solution()
+path = "/home/user/Documents/../Pictures"
+print(c.simplifyPath(path))
