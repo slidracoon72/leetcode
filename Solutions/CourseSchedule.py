@@ -20,7 +20,7 @@ class Solution:
 
         # Defining DFS function
         def dfs(course):
-            # if loop detected in graph(course already visited), return False
+            # if loop detected in graph (course already visited), return False
             if course in visitSet:
                 return False
 
@@ -35,7 +35,7 @@ class Solution:
             # Remove course to avoid false detection of cycles in other paths
             visitSet.remove(course)
 
-            # remove prerequisite of visited(and doable) course
+            # remove prerequisite of visited (and doable) course
             preMap[course] = []
 
             return True

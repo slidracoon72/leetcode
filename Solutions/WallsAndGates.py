@@ -43,6 +43,34 @@ class Solution:
             # Level ends, increase distance
             dist += 1
 
+    # Similar as above
+    def wallsAndGates1(self, grid: List[List[int]]) -> None:
+        rows, cols = len(grid), len(grid[0])
+
+        q = deque()
+        visit = set()
+
+        # add the gates to the queue and set to start the bfs from
+        for r in range(rows):
+            for c in range(cols):
+                if grid[r][c] == 0:
+                    visit.add((r, c))
+                    q.append((r, c))
+
+        directions = [[1, 0], [-1, 0], [0, 1], [0, -1]]
+        dist = 0
+        while q:
+            for i in range(len(q)):
+                r, c = q.popleft()
+                grid[r][c] = dist
+                for dr, dc in directions:
+                    nei_r, nei_c = r + dr, c + dc
+                    if 0 <= nei_r < rows and 0 <= nei_c < cols and (nei_r, nei_c) not in visit and grid[nei_r][
+                        nei_c] != -1:
+                        visit.add((nei_r, nei_c))
+                        q.append((nei_r, nei_c))
+            dist += 1
+
 
 c = Solution()
 rooms = [[2147483647, -1, 0, 2147483647], [2147483647, 2147483647, 2147483647, -1], [2147483647, -1, 2147483647, -1],

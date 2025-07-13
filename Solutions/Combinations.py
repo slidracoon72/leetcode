@@ -25,6 +25,33 @@ class Solution:
         backtrack(1, [])  # Initial call to the backtracking function starting with 1 and an empty combination
         return res  # Return the list of all combinations
 
+    # My solution
+    # Similar to Subsets.py
+    def combine1(self, n: int, k: int) -> List[List[int]]:
+        res = []  # This will store all valid combinations
+
+        def dfs(i, cur):
+            # Base case: if current combination has k elements, add to result
+            if len(cur) == k:
+                res.append(cur.copy())  # Make a copy to avoid mutation
+                return
+
+            # Base case: if index exceeds n, stop the recursion
+            if i > n:
+                return
+
+            # Recursive case 1: include current number i in the combination
+            cur.append(i)
+            dfs(i + 1, cur)
+
+            # Backtrack: remove i and explore the path without including it
+            cur.pop()
+            dfs(i + 1, cur)
+
+        # Start DFS from 1 with an empty combination
+        dfs(1, [])
+        return res  # Return the list of all combinations
+
 
 c = Solution()
 n = 4
