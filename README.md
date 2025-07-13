@@ -7,7 +7,7 @@ Welcome to my LeetCode repository! This project contains my personal solutions t
 ```
 leetcode/
   ├── Solutions/         # Python solutions to individual LeetCode problems
-  ├── Algorithms/        # Classic algorithms (e.g., Dijkstra, heapify, etc.)
+  ├── Algorithms/        # Classic algorithms
   └── Data Structures/   # Implementations of common data structures
 ```
 
