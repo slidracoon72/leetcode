@@ -25,7 +25,7 @@ class Solution:
 
 
 c = Solution()
-a1 = [1, 2, 3]
+a1 = [1, 2, 9]
 a2 = [4, 3, 2, 1]
 a3 = [9]
 print(c.plusOne(a1))

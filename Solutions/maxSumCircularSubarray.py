@@ -5,17 +5,20 @@ from typing import List
 # Neetcode: https://www.youtube.com/watch?v=fxT9KjakYPM
 class Solution:
     def maxSubarraySumCircular(self, nums: List[int]) -> int:
-        curMax = curMin = total = 0
-        globalMax = globalMin = nums[0]
+        globMax, globMin = nums[0], nums[0]
+        curMax, curMin = 0, 0
+        total = 0
 
-        for n in nums:
-            curMax = max(n, curMax + n)
-            curMin = min(n, curMin + n)
-            globalMax = max(globalMax, curMax)
-            globalMin = min(globalMin, curMin)
-            total += n
+        for num in nums:
+            curMax = max(curMax + num, num)
+            curMin = min(curMin + num, num)
+            total += num
+            globMax = max(globMax, curMax)
+            globMin = min(globMin, curMin)
 
-        if globalMax > 0:
-            return max(globalMax, total - globalMin)
-        else:
-            return globalMax
+        return max(globMax, total - globMin) if globMax > 0 else globMax
+
+
+c = Solution()
+nums = [-2, 4, -5, 4, -5, 9, 4]
+print(c.maxSubarraySumCircular(nums))

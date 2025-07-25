@@ -33,3 +33,31 @@ class Solution:
             if i not in ind:
                 res += s[i]
         return res
+
+    def makeFancyString2(self, s: str) -> str:
+        n = len(s)
+        if n <= 2:
+            return s
+
+        remove = set()
+
+        i, j, k = 0, 1, 2
+        while k < n:
+            if s[i] == s[j] == s[k]:
+                remove.add(i)
+            i, j, k = i + 1, j + 1, k + 1
+
+        if not remove:
+            return s
+
+        res = ""
+        for i in range(n):
+            if i not in remove:
+                res += s[i]
+
+        return res
+
+
+c = Solution()
+s = "leeetcode"
+print(c.makeFancyString2(s))
