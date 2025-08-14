@@ -2,14 +2,27 @@ from typing import List
 
 
 class Solution:
+    # Time and Space: O(numRows ^ 2)
     def generate(self, numRows: int) -> List[List[int]]:
+        # Initialize the result with the first row of Pascal's Triangle
         res = [[1]]
+
+        # Generate the remaining rows
         for i in range(numRows - 1):
+            # Pad the previous row with 0s on both sides to simplify addition
             temp = [0] + res[-1] + [0]
+
+            # Initialize the new row
             row = []
-            for j in range(len(res[-1]) + 1):
+
+            # Construct the next row by summing adjacent pairs from the padded row
+            for j in range(len(temp) - 1):
                 row.append(temp[j] + temp[j + 1])
+
+            # Append the newly constructed row to the result
             res.append(row)
+
+        # Return the complete Pascal's Triangle with numRows rows
         return res
 
 
@@ -27,4 +40,3 @@ r = [7, 8, 9, 10]
 for x in r:
     ar.append(x)
 print("New:", ar)
-
