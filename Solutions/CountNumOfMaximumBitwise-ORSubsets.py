@@ -29,8 +29,3 @@ class Solution:
         # Start DFS from index 0 with an initial OR value of 0
         dfs(0, 0)
         return res  # Return the count of subsets with the maximum OR value
-
-
-c = Solution()
-nums = [2, 2, 2]
-print(c.countMaxOrSubsets(nums))

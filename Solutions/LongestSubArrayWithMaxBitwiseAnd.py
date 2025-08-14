@@ -16,22 +16,6 @@ class Solution:
                 size = 0
         return res
 
-    # Similar as above
-    # Time: O(n), Space: O(1)
-    def longestSubarray1(self, nums: List[int]) -> int:
-        max_and = max(nums)
-
-        res = 0
-        l, r = 0, 0
-        while r < len(nums):
-            while r < len(nums) and nums[r] == max_and:
-                r += 1
-            res = max(res, r - l)
-            r += 1
-            l = r
-
-        return res
-
 
 c = Solution()
 nums = [1, 2, 3, 3, 2, 2]
