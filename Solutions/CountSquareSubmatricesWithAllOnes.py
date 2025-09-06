@@ -29,7 +29,7 @@ class Solution:
 
     # Using Dynamic Programming - Top-Down Approach
     # Time: O(m*n), Space:O(m*n)
-    def countSquares(self, matrix: List[List[int]]) -> int:
+    def countSquares1(self, matrix: List[List[int]]) -> int:
         rows, cols = len(matrix), len(matrix[0])
         cache = {}  # Dictionary to memoize results for each cell to avoid redundant calculations
 
@@ -82,3 +82,21 @@ class Solution:
                     res += dp[(r, c)]
 
         return res  # Return the total count of squares in the matrix
+
+
+c = Solution()
+matrix = [
+    [0, 1, 1, 1],
+    [1, 1, 1, 1],
+    [0, 1, 1, 1]
+]
+
+matrix1 = [
+    [1, 0, 1],
+    [1, 1, 0],
+    [1, 1, 0]
+]
+
+print(c.countSquares(matrix))
+print(c.countSquares1(matrix1))
+print(c.countSquares2(matrix1))

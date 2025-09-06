@@ -46,4 +46,6 @@ class Solution:
 
 c = Solution()
 mat = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+mat1 = [[1, 2], [3, 4]]
 print(c.findDiagonalOrder(mat))
+print(c.findDiagonalOrder(mat1))
