@@ -15,7 +15,7 @@ class Solution:
             # Add the new full bottles to the count of total bottles drunk
             count += new_bottles
 
-        # Return the total count of bottles drunk
+        # Return the total count of bottles drunk.
         return count
 
 

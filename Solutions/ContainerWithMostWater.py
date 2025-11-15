@@ -51,4 +51,6 @@ class Solution:
 
 c = Solution()
 height = [1, 8, 6, 2, 5, 4, 8, 3, 7]
+height1 = [1, 8, 6, 2, 5, 4, 8, 3, 7, 9, 10, 2, 6, 4, 12, 1, 14, 3, 13, 2]
 print(c.maxArea(height))
+print(c.maxArea1(height1))
