@@ -1,9 +1,9 @@
 # Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.left = None
-#         self.right = None
+class TreeNode:
+    def __init__(self, x):
+        self.val = x
+        self.left = None
+        self.right = None
 
 # LCA = Lowest Common Ancestor
 # Neetcode: https://www.youtube.com/watch?v=gs2LMfuOR9k

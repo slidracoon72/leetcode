@@ -11,7 +11,6 @@ class Solution:
         for i in range(len(nums)):
             res[i] = prefix
             prefix *= nums[i]
-
         postfix = 1
         for i in range(len(nums) - 1, -1, -1):
             res[i] *= postfix
@@ -52,5 +51,5 @@ class Solution:
 c = Solution()
 nums1 = [1, 2, 3, 4]
 nums2 = [-1, 1, 0, -3, 3]
-print(c.productExceptSelf1(nums1))
-print(c.productExceptSelf1(nums2))
+print(c.productExceptSelf(nums1))
+# print(c.productExceptSelf1(nums2))

@@ -21,5 +21,5 @@ class Solution:
 
 
 c = Solution()
-intervals = [[1, 3], [2, 6], [8, 10], [15, 18]]
+intervals = [[1, 3], [2, 6], [5, 10], [15, 18]]
 print(c.merge(intervals))
