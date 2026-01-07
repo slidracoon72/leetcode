@@ -3,6 +3,21 @@ from collections import Counter
 
 class Solution:
     def checkInclusion(self, s1: str, s2: str) -> bool:
+        need = Counter(s1)
+        cur = Counter()
+
+        l = 0
+        for r in range(len(s2)):
+            cur[s2[r]] += 1
+            if r - l + 1 > len(s1):
+                cur[s2[l]] -= 1
+                l += 1
+            if cur == need:
+                return True
+
+        return False
+
+    def checkInclusion1(self, s1: str, s2: str) -> bool:
         c = Counter(s1)
         l = len(s1)
         i = 0
@@ -13,7 +28,7 @@ class Solution:
             i += 1
         return False
 
-    def checkInclusion1(self, s1: str, s2: str) -> bool:
+    def checkInclusion2(self, s1: str, s2: str) -> bool:
         # Edge case: if s1 is longer than s2, no permutation is possible
         if len(s1) > len(s2):
             return False
@@ -49,4 +64,4 @@ class Solution:
 c = Solution()
 s1 = "abc"
 s2 = "lecabee"
-print(c.checkInclusion1(s1, s2))
+print(c.checkInclusion(s1, s2))

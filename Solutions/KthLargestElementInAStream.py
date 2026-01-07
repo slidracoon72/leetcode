@@ -41,10 +41,25 @@ class KthLargest1:
         return self.minHeap[0]
 
 
+# Similar as above
+class KthLargest2:
+
+    def __init__(self, k: int, nums: List[int]):
+        self.k = k
+        self.heap = []
+        for num in nums:
+            heapq.heappush(self.heap, num)
+            if len(self.heap) > self.k:
+                heapq.heappop(self.heap)
+
+    def add(self, val: int) -> int:
+        heapq.heappush(self.heap, val)
+        if len(self.heap) > self.k:
+            heapq.heappop(self.heap)
+        return self.heap[0]
+
+
 k = 3
 nums = [4, 5, 8, 2]
 obj = KthLargest1(k, nums)
 values = [3, 5, 10, 9, 4]
-
-for val in values:
-    print(obj.add(val))
