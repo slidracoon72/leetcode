@@ -20,5 +20,4 @@ class Solution:
 
 l = ListNode([1, 2])
 c = Solution()
-
 print(c.hasCycle(l))

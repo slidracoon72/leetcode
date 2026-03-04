@@ -45,7 +45,7 @@ class Solution:
                 if target in N:
                     res.add(tuple(sorted([p[i], p[j], target])))
 
-        return res
+        return list(res)
 
     # Neetcode solution: https://www.youtube.com/watch?v=jzZsG8n2R9A
     # Using Two-Pointers

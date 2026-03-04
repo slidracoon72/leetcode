@@ -4,7 +4,7 @@ from typing import List
 class Solution:
     # Using XOR - Bit Manipulation
     # XOR cancels out same numbers
-    # Time: O(n), Space: O(n)
+    # Time: O(n), Space: O(1)
     def singleNumber(self, nums: List[int]) -> int:
         res = 0
         for n in nums:

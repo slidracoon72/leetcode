@@ -31,6 +31,29 @@ class Solution:
         dfs(0, [], 0)
         return res
 
+    # Similar as above
+    def combinationSum1(self, nums: List[int], target: int) -> List[List[int]]:
+        res = set()
+
+        def dfs(i, cur, total):
+            if total == target:
+                res.add(tuple(cur))
+                return
+
+            if i >= len(nums) or total > target:
+                return
+
+            # include
+            cur.append(nums[i])
+            dfs(i, cur, total + nums[i])
+
+            # skip
+            cur.pop()
+            dfs(i + 1, cur, total)
+
+        dfs(0, [], 0)
+        return [list(t) for t in res]
+
 
 c = Solution()
 l = [2, 3, 6, 7]

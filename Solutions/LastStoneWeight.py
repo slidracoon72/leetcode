@@ -2,6 +2,8 @@ import heapq
 from typing import List
 
 
+# Solved using Max-Heap
+# Time: O(nlogn), Space: O(n)
 class Solution:
     def lastStoneWeight(self, stones: List[int]) -> int:
         stones = [-s for s in stones]

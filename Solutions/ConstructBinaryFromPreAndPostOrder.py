@@ -1,4 +1,4 @@
-# LC-889: Construct Binary Tree from Preorder and Postorder Traversal
+ # LC-889: Construct Binary Tree from Preorder and Postorder Traversal
 
 from typing import List, Optional
 

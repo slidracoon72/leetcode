@@ -3,6 +3,26 @@ from typing import List
 
 class Solution:
     def subsetsWithDup(self, nums: List[int]) -> List[List[int]]:
+        res = set()
+
+        def dfs(cur, i):
+            if i == len(nums):
+                res.add(tuple(cur))
+                return
+
+            # include
+            cur.append(nums[i])
+            dfs(cur, i + 1)
+
+            # skip
+            cur.pop()
+            dfs(cur, i + 1)
+
+        nums.sort()  # to avoid duplicates
+        dfs([], 0)
+        return [list(t) for t in res]
+
+    def subsetsWithDup1(self, nums: List[int]) -> List[List[int]]:
         # Generate all possible subsets (power set) of the input list `nums`, which may contain duplicates.
         # Uses backtracking to explore all combinations, ensuring no duplicate subsets by sorting and skipping duplicates.
         # Args:

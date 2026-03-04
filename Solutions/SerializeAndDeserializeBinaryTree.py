@@ -17,8 +17,11 @@ class Codec:
         :type root: TreeNode
         :rtype: str
         """
-        if not root: return "null"
-        res, q = [], deque([root])
+        if not root:
+            return "null"
+
+        res = []
+        q = deque([root])
         while q:
             node = q.popleft()
             if node:
@@ -35,7 +38,9 @@ class Codec:
         :type data: str
         :rtype: TreeNode
         """
-        if data == "null": return None
+        if data == "null":
+            return None
+
         nodes = data.split(',')
         root = TreeNode(int(nodes[0]))
         q = deque([root])
