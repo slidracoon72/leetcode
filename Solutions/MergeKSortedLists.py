@@ -1,48 +1,47 @@
-# LC - Hard
-from typing import Optional, List
+# ASUS Singapore Question
+
+import heapq
+from typing import List
 
 
-# Definition for singly-linked list
-class ListNode:
-    def __init__(self, val=0, next=None):
-        self.val = val
-        self.next = next
-
-
-# Solution from Neetcode: https://www.youtube.com/watch?v=q5a5OiGbT6Q
 class Solution:
-    def mergeKLists(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:
-        if not lists or len(lists) == 0:
-            return None
+    def mergeKSortedLists(self, lists: List[List[int]]) -> List[int]:
+        """
+        Merge k sorted lists into one sorted list.
 
-        while len(lists) > 1:
-            mergedLists = []
+        Approach: Min-Heap (Priority Queue)
+        - Push the first element of each list into a min-heap.
+        - Each heap entry stores (value, list_index, element_index)
+          so we can efficiently pull the next element from the same list.
+        - Repeatedly pop the smallest element and push the next
+          element from that list until the heap is empty.
 
-            for i in range(0, len(lists), 2):
-                l1 = lists[i]
-                l2 = lists[i + 1] if i + 1 < len(lists) else None
-                mergedLists.append(self.mergeTwoLists(l1, l2))
+        Time Complexity:  O(N log k)
+            N = total number of elements across all lists
+            k = number of lists
+        Space Complexity: O(k) for the heap + O(N) for the output
+        """
+        result = []
+        min_heap = []
 
-            lists = mergedLists
-        return lists[0]
+        # Seed the heap with the first element of each non-empty list
+        for i, lst in enumerate(lists):
+            if lst:
+                heapq.heappush(min_heap, (lst[0], i, 0))  # (value, list_index, element_index)
 
-    def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
-        dummy = ListNode()
-        tail = dummy
+        # Extract the minimum element and advance that list's pointer
+        while min_heap:
+            val, list_idx, elem_idx = heapq.heappop(min_heap)
+            result.append(val)
 
-        while l1 and l2:  # l1, l2 are not null
-            if l1.val < l2.val:
-                tail.next = l1
-                l1 = l1.next
-            else:
-                tail.next = l2
-                l2 = l2.next
-            tail = tail.next
+            next_idx = elem_idx + 1
+            if next_idx < len(lists[list_idx]):
+                next_val = lists[list_idx][next_idx]
+                heapq.heappush(min_heap, (next_val, list_idx, next_idx))
 
-        # add remaining part of the list to dummy (if list exist)
-        if l1:
-            tail.next = l1
-        elif l2:
-            tail.next = l2
+        return result
 
-        return dummy.next
+
+c = Solution()
+lists = [[1, 4, 5], [1, 3, 4], [2, 6]]
+print(c.mergeKSortedLists(lists))

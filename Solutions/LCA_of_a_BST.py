@@ -15,7 +15,7 @@ class Solution:
         # Initialize current node to root
         cur = root
         # Traverse the BST until the LCA is found
-        while root:
+        while cur:
             # If both p and q are greater than the current node's value, move to the right subtree
             if (p.val > cur.val) and (q.val > cur.val):
                 cur = cur.right

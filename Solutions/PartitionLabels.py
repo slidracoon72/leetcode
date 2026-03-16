@@ -4,6 +4,26 @@ from typing import List
 
 class Solution:
     # Time: O(n), Space: O(26) = O(1)
+    def partitionLabels1(self, s: str) -> List[int]:
+        last_index = {}
+
+        for i, c in enumerate(s):
+            last_index[c] = i
+
+        res = []
+        size, max_end = 0, 0
+        for i, c in enumerate(s):
+            size += 1
+            end = last_index[c]
+            max_end = max(max_end, end)
+
+            if i == max_end:
+                res.append(size)
+                size = 0
+
+        return res
+
+    # Time: O(n), Space: O(26) = O(1)
     def partitionLabels(self, s: str) -> List[int]:
         # Count frequency of each character in the string
         count = Counter(s)
@@ -34,26 +54,6 @@ class Solution:
                 j = i + 1
 
         # Return the list of partition lengths
-        return res
-
-    # Time: O(n), Space: O(26) = O(1)
-    def partitionLabels1(self, s: str) -> List[int]:
-        last_index = {}
-
-        for i, c in enumerate(s):
-            last_index[c] = i
-
-        res = []
-        size, max_end = 0, 0
-        for i, c in enumerate(s):
-            size += 1
-            end = last_index[c]
-            max_end = max(max_end, end)
-
-            if i == max_end:
-                res.append(size)
-                size = 0
-
         return res
 
 
