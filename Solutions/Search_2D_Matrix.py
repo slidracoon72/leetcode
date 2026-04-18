@@ -2,6 +2,7 @@ from typing import List
 
 
 class Solution:
+    # Time: O(log m + log n), Space: O(1)
     def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
         # Determine the number of rows and columns
         rows = len(matrix)

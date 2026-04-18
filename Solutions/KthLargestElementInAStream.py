@@ -36,9 +36,9 @@ class KthLargest1:
         # Maintain only k-largest elements after push
         if len(self.minHeap) > self.k:
             heapq.heappop(self.minHeap)
-
         # Return smallest element of K remaining elements
         return self.minHeap[0]
+
 
 
 # Similar as above
