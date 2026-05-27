@@ -25,7 +25,7 @@ class Solution:
 
     # helper function to find out if the character is alphanumeric or not
     def alphaNum(self, c):
-        return (ord('A') <= ord(c) <= ord('Z') or ord('a') <= ord(c) <= ord('z') or ord('0') <= ord(c) <= ord('9'))
+        return ord('A') <= ord(c) <= ord('Z') or ord('a') <= ord(c) <= ord('z') or ord('0') <= ord(c) <= ord('9')
 
     # Similar as above. Using built-in isalnum()
     def isPalindrome1(self, s: str) -> bool:

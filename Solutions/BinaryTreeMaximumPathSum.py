@@ -36,3 +36,24 @@ class Solution:
 
         dfs(root)
         return res[0]  # Final result contains the maximum path sum found
+
+    # Same as above - without comments
+    def maxPathSum1(self, root: Optional[TreeNode]) -> int:
+        self.res = root.val
+
+        def dfs(cur):
+            if not cur:
+                return 0
+
+            l = dfs(cur.left)
+            r = dfs(cur.right)
+
+            l = max(l, 0)
+            r = max(r, 0)
+
+            self.res = max(self.res, l + r + cur.val)
+
+            return cur.val + max(l, r)
+
+        dfs(root)
+        return self.res
