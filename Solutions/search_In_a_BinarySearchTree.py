@@ -14,7 +14,7 @@ class Solution:
         while root:
             if root.val == val:
                 return root
-            if root.val > val:
+            if val < root.val:
                 root = root.left
             else:
                 root = root.right
