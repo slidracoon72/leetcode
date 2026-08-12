@@ -12,7 +12,7 @@ class Solution:
 
         # Binary search for minimum capability
         while l <= r:
-            mid = (l + r) // 2  # Midpoint capability to test
+            mid = l + (r - l) // 2  # Midpoint capability to test
             count = 0  # Count of houses that can be robbed
 
             i = 0

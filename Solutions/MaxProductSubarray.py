@@ -17,6 +17,18 @@ class Solution:
 
     # Similar as above
     def maxProduct1(self, nums: List[int]) -> int:
+        res = nums[0]
+        curMax, curMin = 1, 1
+
+        for n in nums:
+            temp = curMax * n
+            curMax = max(temp, curMin * n, n)
+            curMin = min(temp, curMin * n, n)
+            res = max(res, curMax)
+
+        return res
+
+    def maxProduct2(self, nums: List[int]) -> int:
         if not nums:
             return 0
 

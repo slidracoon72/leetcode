@@ -25,6 +25,16 @@ class Solution:
             else:
                 complementMap[num] = i
 
+    def twoSum2(self, nums: List[int], target: int) -> List[int]:
+        complement = {}
+
+        for i, num in enumerate(nums):
+            comp = target - num
+            if comp in complement:
+                return [complement[comp], i]
+            else:
+                complement[num] = i
+
     # Time: O(n^2)
     def bruteForceTwoSum(self, nums, target):
         for i in range(len(nums)):

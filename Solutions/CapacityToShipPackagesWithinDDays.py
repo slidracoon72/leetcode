@@ -11,7 +11,7 @@ class Solution:
         res = r
 
         while l <= r:
-            capacity = (l + r) // 2
+            capacity = l + (r - l) // 2
 
             cur_w = 0
             d = 1  # Start with day 1

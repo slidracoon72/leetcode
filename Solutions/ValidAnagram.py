@@ -1,3 +1,6 @@
+from collections import Counter
+
+
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
         s = sorted(list(s))
@@ -26,6 +29,9 @@ class Solution:
             if val != 0:
                 return False
         return True
+
+    def isAnagram3(self, s: str, t: str) -> bool:
+        return Counter(s) == Counter(t)
 
 
 s = "anagram"

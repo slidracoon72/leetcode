@@ -39,8 +39,24 @@ class Solution:
             res.append(heapq.heappop(heap)[1])
         return res
 
-    # Using Max-Heap
     def topKFrequent3(self, nums: List[int], k: int) -> List[int]:
+        count = collections.Counter(nums)
+
+        heap = []
+        for key, value in count.items():
+            heapq.heappush(heap, [value, key])
+            if len(heap) > k:
+                heapq.heappop(heap)
+
+        res = []
+        while heap:
+            _, key = heapq.heappop(heap)
+            res.append(key)
+
+        return res
+
+    # Using Max-Heap
+    def topKFrequent4(self, nums: List[int], k: int) -> List[int]:
         c = collections.Counter(nums)  # Count frequencies: O(n) time
 
         # Use a max-heap (simulated via negative counts)

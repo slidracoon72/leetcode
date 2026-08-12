@@ -14,6 +14,14 @@ class Solution:
     def hasDuplicate1(self, nums: List[int]) -> bool:
         return len(set(nums)) < len(nums)
 
+    def hasDuplicate2(self, nums: List[int]) -> bool:
+        seen = set()
+        for num in nums:
+            if num in seen:
+                return True
+            seen.add(num)
+        return False
+
 
 c = Solution()
 a1 = [1, 2, 3, 1]
