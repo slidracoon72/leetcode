@@ -16,7 +16,7 @@ class Solution:
         # Binary search to find the minimum eating speed
         while l <= r:
             # Calculate mid-point rate to test
-            k = (l + r) // 2  # k is the eating speed (bananas per hour)
+            k = l + (r - l) // 2  # k is the eating speed (bananas per hour)
 
             # Compute total hours needed to eat all piles at rate k
             hours = 0
